@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,30 +24,54 @@ public class UsuarioControlador {
 	@Autowired
 	public UsuarioRepositorio usuarioRep;
 	
+	
+	@GetMapping(value ="/obtenerCodigos")
+	public HashMap<String, Object> obtenerCodigos() {
 
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("Codigo-101", "El usuario ya existe");
+	    map.put("Codigo-102", "Usuario no existente");
+	    map.put("Codigo-103", "El rol {nombre del rol} no fue encontrado en el usuario");
+	    map.put("Codigo-104", "Las contraseñas no son iguales");
+		return map;
+	}
+	
 	@PostMapping(value ="/crear")
-	public String crearUsuario(@RequestBody Usuario usu) {
+	public HashMap<String, Object> crearUsuario(@RequestBody Usuario usu) {
 		var test = this.usuarioRep.findById(usu.getCorreo());
 		if(test.isPresent())
 		{
-			return "error code 101";
+		    HashMap<String, Object> map = new HashMap<>();
+		    map.put("Codigo", "101");
+		    map.put("Status", "Error");
+		    map.put("Descripción", "El usuario ya existe");
+			return map;
 		}
 		Usuario insertUsuario = usuarioRep.insert(usu);
-		return "Student created " + insertUsuario.getNombre();
+	    
+		HashMap<String, Object> map = new HashMap<>();
+	    map.put("Codigo", "400");
+	    map.put("Status", "OK");
+	    map.put("Descripción", "El usuario "+ insertUsuario.getNombre()+ " se creo satisfactoriamente");
+		return map;
 	}
 	
 	@GetMapping(value ="/autorizar/{correo}/{contra}")
-	public String autorizar(@PathVariable String correo, @PathVariable String contra) {
+	public HashMap<String, Object> autorizar(@PathVariable String correo, @PathVariable String contra) {
 		var test = this.usuarioRep.findById(correo);
 		if(test.isPresent())
 		{
-			return "{UsuarioAutorizado: true}";
+		    HashMap<String, Object> map = new HashMap<>();
+		    map.put("Autorizado", "True");
+			return map;
 		}
-		return "{" + "'" + "UsuarioAutorizado" + "'" + ":false}";
+	    HashMap<String, Object> map = new HashMap<>();
+	    map.put("Autorizado", "False");
+		return map;
 	}
 	
 	@PutMapping(value ="/agregarRoles")
-	public String agregarRoles(@RequestBody UsuarioRoles usu) {
+	public HashMap<String, Object> agregarRoles(@RequestBody UsuarioRoles usu) {
 		
 		if(usuarioRep.findById(usu.getCorreo()).isPresent())
 		{
@@ -56,22 +81,34 @@ public class UsuarioControlador {
 				findUser.setRoles(usu.getRoles());
 				usuarioRep.save(findUser);
 			    
-				return "OK";
+				HashMap<String, Object> map = new HashMap<>();
+			    map.put("Codigo", "400");
+			    map.put("Status", "OK");
+			    map.put("Descripción", "Los roles se agregaron satisfactoriamente");
+				return map;
 			}
 			else 
 			{
-				return "Codigo de error 104: Las contraseñas no son iguales";
+				HashMap<String, Object> map = new HashMap<>();
+			    map.put("Codigo", "104");
+			    map.put("Status", "Error");
+			    map.put("Descripción", "Las contraseñas no son iguales");
+				return map;
 			}
 			
 		}
 		else
 		{
-			return "Codigo de error 102: Usuario no existente";
+			HashMap<String, Object> map = new HashMap<>();
+		    map.put("Codigo", "102");
+		    map.put("Status", "Error");
+		    map.put("Descripción", "Usuario no existente");
+			return map;
 		}
 	}
 	
 	@DeleteMapping(value ="/eliminarRoles")
-	public String eliminarRoles(@RequestBody UsuarioRoles usu) {
+	public HashMap<String, Object> eliminarRoles(@RequestBody UsuarioRoles usu) {
 		
 		if(usuarioRep.findById(usu.getCorreo()).isPresent())
 		{
@@ -84,7 +121,11 @@ public class UsuarioControlador {
 					if(!findUser.getRoles().contains(r))
 					{
 						foundRol = r;
-						return "Codigo de error 103: El rol " + foundRol + " no fue encontrado en el usuario";
+						HashMap<String, Object> map = new HashMap<>();
+					    map.put("Codigo", "103");
+					    map.put("Status", "Error");
+					    map.put("Descripción", "El rol " + foundRol + " no fue encontrado en el usuario");
+						return map;
 					}
 				}
 				for(String r: usu.getRoles())
@@ -93,18 +134,30 @@ public class UsuarioControlador {
 				}
 				usuarioRep.save(findUser);
 			    
-				return "OK";
+				HashMap<String, Object> map = new HashMap<>();
+			    map.put("Codigo", "400");
+			    map.put("Status", "OK");
+			    map.put("Descripción", "Los roles se eliminaron satisfactoriamente");
+				return map;
 
 			}
 			else 
 			{
-				return "Codigo de error 104: Las contraseñas no son iguales";
+				HashMap<String, Object> map = new HashMap<>();
+			    map.put("Codigo", "104");
+			    map.put("Status", "Error");
+			    map.put("Descripción", "Las contraseñas no son iguales");
+				return map;
 			}
 			
 		}
 		else
 		{
-			return "Codigo de error 102: Usuario no existente";
+			HashMap<String, Object> map = new HashMap<>();
+		    map.put("Codigo", "102");
+		    map.put("Status", "Error");
+		    map.put("Descripción", "El usuario no existe");
+			return map;
 		}
 	}
 	
