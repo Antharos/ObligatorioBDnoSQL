@@ -50,7 +50,7 @@ public class UsuarioControlador {
 		Usuario insertUsuario = usuarioRep.insert(usu);
 	    
 		HashMap<String, Object> map = new HashMap<>();
-	    map.put("Codigo", "400");
+	    map.put("Codigo", "200");
 	    map.put("Status", "OK");
 	    map.put("Descripción", "El usuario "+ insertUsuario.getNombre()+ " se creo satisfactoriamente");
 		return map;
@@ -82,7 +82,7 @@ public class UsuarioControlador {
 				usuarioRep.save(findUser);
 			    
 				HashMap<String, Object> map = new HashMap<>();
-			    map.put("Codigo", "400");
+			    map.put("Codigo", "200");
 			    map.put("Status", "OK");
 			    map.put("Descripción", "Los roles se agregaron satisfactoriamente");
 				return map;
@@ -135,7 +135,7 @@ public class UsuarioControlador {
 				usuarioRep.save(findUser);
 			    
 				HashMap<String, Object> map = new HashMap<>();
-			    map.put("Codigo", "400");
+			    map.put("Codigo", "200");
 			    map.put("Status", "OK");
 			    map.put("Descripción", "Los roles se eliminaron satisfactoriamente");
 				return map;

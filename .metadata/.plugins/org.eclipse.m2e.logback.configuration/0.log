@@ -1028,3 +1028,11 @@
 2021-10-25 15:12:21,832 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-10-25 15:12:21,832 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-10-25 15:12:21,832 [Worker-31: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Clases\NOSQL\Obligatorio\ObligatorioBDnoSQL\MongoProject\src\test\resources
+2021-10-25 18:18:37,310 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2021-10-25 18:23:24,020 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-25 18:23:24,020 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-25 18:23:24,023 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2021-10-25 18:23:24,036 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-10-25 18:23:24,038 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-10-25 18:23:24,038 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-10-25 18:23:24,038 [Worker-5: Launching MongoProject - MongoProjectApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Clases\NOSQL\Obligatorio\ObligatorioBDnoSQL\MongoProject\src\test\resources
