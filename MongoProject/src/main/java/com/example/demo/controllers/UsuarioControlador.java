@@ -61,9 +61,18 @@ public class UsuarioControlador {
 		var test = this.usuarioRep.findById(correo);
 		if(test.isPresent())
 		{
-		    HashMap<String, Object> map = new HashMap<>();
-		    map.put("Autorizado", "True");
-			return map;
+			if(test.get().getContra().equals(contra))
+			{
+			    HashMap<String, Object> map = new HashMap<>();
+			    map.put("Autorizado", "True");
+				return map;
+			}
+			else
+			{
+			    HashMap<String, Object> map = new HashMap<>();
+			    map.put("Autorizado", "False");
+				return map;
+			}
 		}
 	    HashMap<String, Object> map = new HashMap<>();
 	    map.put("Autorizado", "False");
