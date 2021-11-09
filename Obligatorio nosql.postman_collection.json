@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "e567550b-bd6e-4663-bacc-b7c1dcc16025",
+		"name": "Obligatorio nosql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Eliminar Roles",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"tiago@gmail.com\",\r\n    \"contra\": \"1234\",\r\n    \"roles\": [\"rol1\", \"rol2\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6040/eliminarRoles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6040",
+					"path": [
+						"eliminarRoles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Roles",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"tiago@gmail.com\",\r\n    \"contra\": \"1234\",\r\n    \"roles\": [\"rol1\", \"rol2\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6040/agregarRoles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6040",
+					"path": [
+						"agregarRoles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autorizar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"federico@gmail.com4\",\r\n    \"contra\": \"1234\",\r\n    \"roles\": [\"rol1\", \"rol2\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6040/autorizar/federico@gmail.com/1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6040",
+					"path": [
+						"autorizar",
+						"federico@gmail.com",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"tiago@gmail.com\",\r\n    \"nombre\": \"Tiago\",\r\n    \"apellido\": \"Mendaro\",\r\n    \"contra\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6040/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6040",
+					"path": [
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener codigos de error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6040/obtenerCodigos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6040",
+					"path": [
+						"obtenerCodigos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
